@@ -1,0 +1,49 @@
+Charts & Analytics
+
+Show weekly completed tasks in a bar chart
+
+Show study hours per day in a line chart
+
+Show percentage of tasks completed today
+
+Animate charts for smooth transitions
+
+Add custom color themes to charts
+
+Deployment
+
+Setup deployment on Vercel
+
+Connect GitHub repository to deployment
+
+Add live demo link to README
+
+Add screenshots / GIFs in README
+
+Optional / Future Features
+
+Add Pomodoro study timer
+
+Add push notifications for deadlines
+
+Calendar integration (view monthly/weekly tasks)
+
+Analytics export (PDF/CSV)
+
+Multiple dashboards (per subject or course)
+
+Gamification: badges, streaks, points
+
+Dark mode customization (theme selector)
+
+Social sharing of progress (optional)
+
+Notes / comments feature per task
+
+User profile page
+
+Search tasks by keyword
+
+Filter charts by date range
+
+Settings page (theme, notifications, account)
