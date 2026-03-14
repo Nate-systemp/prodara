@@ -3,18 +3,20 @@ import "./DashboardLayout.css";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
+  currentView: string;
+  onViewChange: (view: string) => void;
 }
 
 const NAV_ITEMS = [
-  { label: "Dashboard", icon: "◼", active: true },
-  { label: "Tasks", icon: "☐", active: false },
-  { label: "Timer", icon: "◷", active: false },
-  { label: "Habits", icon: "◆", active: false },
-  { label: "Analytics", icon: "▤", active: false },
-  { label: "Settings", icon: "⚙", active: false },
+  { label: "Dashboard", icon: "◼" },
+  { label: "Tasks", icon: "☐" },
+  { label: "Timer", icon: "◷" },
+  { label: "Habits", icon: "◆" },
+  { label: "Analytics", icon: "▤" },
+  { label: "Settings", icon: "⚙" },
 ];
 
-const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+const DashboardLayout = ({ children, currentView, onViewChange }: DashboardLayoutProps) => {
   return (
     <div className="brutal-layout">
       {/* Sidebar */}
@@ -26,15 +28,14 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
         <nav className="sidebar-nav">
           {NAV_ITEMS.map((item) => (
-            <a
+            <button
               key={item.label}
-              className={`nav-item ${item.active ? "active" : ""}`}
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              className={`nav-item ${currentView === item.label ? "active" : ""}`}
+              onClick={() => onViewChange(item.label)}
             >
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-label">{item.label}</span>
-            </a>
+            </button>
           ))}
         </nav>
 
