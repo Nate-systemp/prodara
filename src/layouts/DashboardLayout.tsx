@@ -1,35 +1,52 @@
 import React from "react";
+import "./DashboardLayout.css";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+interface DashboardLayoutProps {
+  children: React.ReactNode;
+}
+
+const NAV_ITEMS = [
+  { label: "Dashboard", icon: "◼", active: true },
+  { label: "Tasks", icon: "☐", active: false },
+  { label: "Timer", icon: "◷", active: false },
+  { label: "Habits", icon: "◆", active: false },
+  { label: "Analytics", icon: "▤", active: false },
+  { label: "Settings", icon: "⚙", active: false },
+];
+
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
-    <div className="flex h-screen">
-
+    <div className="brutal-layout">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-900 text-white p-6">
-        <h1 className="text-2xl font-bold mb-10">Prodara</h1>
+      <aside className="brutal-sidebar">
+        <div className="sidebar-brand">
+          <span className="brand-text">P</span>
+          <span className="brand-full">PRODARA</span>
+        </div>
 
-        <nav className="flex flex-col gap-4">
-          <a className="hover:text-blue-400">Dashboard</a>
-          <a className="hover:text-blue-400">Tasks</a>
-          <a className="hover:text-blue-400">Analytics</a>
-          <a className="hover:text-blue-400">Settings</a>
+        <nav className="sidebar-nav">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.label}
+              className={`nav-item ${item.active ? "active" : ""}`}
+              href="#"
+              onClick={(e) => e.preventDefault()}
+            >
+              <span className="nav-icon">{item.icon}</span>
+              <span className="nav-label">{item.label}</span>
+            </a>
+          ))}
         </nav>
+
+        <div className="sidebar-footer">
+          <span className="footer-version">V 0.1.0</span>
+        </div>
       </aside>
 
-      {/* Main Area */}
-      <div className="flex-1 flex flex-col">
-
-        {/* Topbar */}
-        <header className="h-16 border-b flex items-center px-6">
-          <h2 className="text-xl font-semibold">Dashboard</h2>
-        </header>
-
-        {/* Page Content */}
-        <main className="flex-1 p-6 bg-gray-100">
-          {children}
-        </main>
-
-      </div>
+      {/* Main Content */}
+      <main className="brutal-main">
+        {children}
+      </main>
     </div>
   );
 };

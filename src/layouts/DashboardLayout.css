@@ -1,0 +1,153 @@
+/* ============================================
+   DASHBOARD LAYOUT — Bold Brutalism
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap');
+
+.brutal-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f0;
+}
+
+/* ---------- Sidebar ---------- */
+.brutal-sidebar {
+  width: 220px;
+  background: #0a0a0a;
+  color: #f5f5f0;
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #0a0a0a;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-brand {
+  padding: 28px 24px 32px;
+  border-bottom: 1px solid rgba(245, 245, 240, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f0;
+  color: #0a0a0a;
+}
+
+.brand-full {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+/* ---------- Navigation ---------- */
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  gap: 2px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(245, 245, 240, 0.4);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  color: #f5f5f0;
+  background: rgba(245, 245, 240, 0.04);
+}
+
+.nav-item.active {
+  color: #f5f5f0;
+  font-weight: 700;
+  border-left-color: #f5f5f0;
+  background: rgba(245, 245, 240, 0.06);
+}
+
+.nav-icon {
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+}
+
+.nav-label {
+  text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+.sidebar-footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(245, 245, 240, 0.08);
+}
+
+.footer-version {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: rgba(245, 245, 240, 0.15);
+}
+
+/* ---------- Main Content ---------- */
+.brutal-main {
+  flex: 1;
+  padding: 36px 40px;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .brutal-sidebar {
+    width: 60px;
+  }
+
+  .brand-full,
+  .nav-label {
+    display: none;
+  }
+
+  .sidebar-brand {
+    padding: 20px 12px;
+    justify-content: center;
+  }
+
+  .nav-item {
+    padding: 14px 0;
+    justify-content: center;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-item.active {
+    border-left: none;
+    border-bottom-color: #f5f5f0;
+  }
+
+  .brutal-main {
+    padding: 24px 20px;
+  }
+}
