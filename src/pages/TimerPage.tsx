@@ -66,8 +66,8 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
       <div className="timer-header">
         <h1>FOCUS_MODE</h1>
         <div className="timer-stats">
-          <span className="stat-label">TOTAL_STUDY_TIME_TODAY:</span>
-          <span className="stat-value">{(studyMinutes / 60).toFixed(1)}H</span>
+          <span className="stat-label">TOTAL STUDY TIME TODAY</span>
+          <span className="stat-value-timer">{(studyMinutes / 60).toFixed(1)}H</span>
         </div>
       </div>
 
@@ -93,17 +93,17 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
         </div>
 
         <div className="timer-controls">
-          <button className="brutal-action-btn large" onClick={toggleTimer}>
-            {isRunning ? "PAUSE_" : "START_"}
+          <button className="large-btn" onClick={toggleTimer}>
+            {isRunning ? "PAUSE" : "START"}
           </button>
-          <button className="brutal-action-btn secondary" onClick={resetTimer}>
-            RESET_
+          <button className="secondary-btn" onClick={resetTimer}>
+            RESET
           </button>
         </div>
       </div>
 
       <div className="timer-footer">
-        <span className="footer-label">POMODORO_PROTOCOL v1.0</span>
+        <span className="footer-label">POMODORO PROTOCOL v1.0</span>
         <div className="protocol-steps">
           <div className={`step ${sessionType === "Focus" ? "current" : ""}`}>01 FOCUS</div>
           <div className="step-arrow">→</div>

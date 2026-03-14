@@ -10,13 +10,14 @@ const SettingsPage = ({ userName, onNameChange }: SettingsPageProps) => {
     <div className="brutal-page settings-page">
       <h1>SETTINGS_</h1>
       
-      <div className="settings-grid">
-        <div className="settings-section">
+      <div className="settings-grid-refined">
+        <div className="settings-card">
           <h3>PROFILE_DATA</h3>
-          <div className="setting-item">
-            <label>DISPLAY_NAME</label>
+          <div className="setting-item-refined">
+            <label className="item-label">DISPLAY NAME</label>
             <input 
               type="text" 
+              className="brutal-input-refined"
               value={userName} 
               onChange={(e) => onNameChange(e.target.value)} 
               placeholder="Your name..."
@@ -24,34 +25,41 @@ const SettingsPage = ({ userName, onNameChange }: SettingsPageProps) => {
           </div>
         </div>
 
-        <div className="settings-section">
-          <h3>PREFERENCES_</h3>
-          <div className="setting-item toggle">
-            <span>DARK_MODE</span>
-            <div className="brutal-toggle active">ON</div>
+        <div className="settings-card">
+          <h3>PREFERENCES</h3>
+          <div className="setting-row-refined">
+            <span className="item-title">DARK MODE</span>
+            <div className="classy-toggle-track active">
+              <div className="classy-toggle-thumb" />
+            </div>
           </div>
-          <div className="setting-item toggle">
-            <span>SOUND_NOTIFICATIONS</span>
-            <div className="brutal-toggle">OFF</div>
+          <div className="setting-row-refined">
+            <span className="item-title">NOTIFICATIONS</span>
+            <div className="classy-toggle-track">
+              <div className="classy-toggle-thumb" />
+            </div>
           </div>
         </div>
 
-        <div className="settings-section">
+        <div className="settings-card">
           <h3>SYSTEM_INFO</h3>
-          <div className="info-row">
-            <span>STATUS</span>
-            <span className="val-active">ONLINE</span>
+          <div className="setting-row-refined">
+            <span className="item-title">STATUS</span>
+            <span className="val-status">ONLINE</span>
           </div>
-          <div className="info-row">
-            <span>VERSION</span>
-            <span>0.1.0-BRUTAL</span>
+          <div className="setting-row-refined">
+            <span className="item-title">VERSION</span>
+            <span style={{ fontWeight: 800 }}>0.1.0-CLASSY</span>
           </div>
         </div>
       </div>
 
-      <div className="danger-zone">
-        <h3>DANGER_ZONE</h3>
-        <button className="brutal-action-btn delete" onClick={() => window.location.reload()}>
+      <div className="danger-zone-refined">
+        <div className="danger-label">
+          <h3>DANGER_ZONE</h3>
+          <p>This action is irreversible. Proceed with caution.</p>
+        </div>
+        <button className="delete-btn-classy" onClick={() => window.location.reload()}>
           RESET_ALL_DATA
         </button>
       </div>

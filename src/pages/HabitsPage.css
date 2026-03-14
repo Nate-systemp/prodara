@@ -1,177 +1,217 @@
+/* ============================================
+   HABITS PAGE — Classy solid
+   ============================================ */
+
 .habits-page {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
 }
 
 .habits-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .habits-stats {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
-.stat-box {
-  border: 2px solid #0a0a0a;
-  padding: 15px;
+.stat-box-refined {
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  padding: 24px 32px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  min-width: 120px;
-  background: #fff;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 
-.stat-box.black {
-  background: #0a0a0a;
+.stat-box-refined.indigo {
+  background: #6366f1;
+  border-color: #6366f1;
   color: #fff;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
 
-.box-val {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
+.stat-box-refined .box-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
-.box-lab {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
+.stat-box-refined .box-lab {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.stat-box-refined.indigo .box-lab {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .matrix-container {
-  border: 4px solid #0a0a0a;
   background: #fff;
-  display: flex;
-  flex-direction: column;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 }
 
 .matrix-header-row, .matrix-row {
   display: grid;
-  grid-template-columns: 2fr repeat(7, 1fr) 100px;
-  border-bottom: 2px solid #0a0a0a;
+  grid-template-columns: 2.5fr repeat(7, 1fr) 120px;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .matrix-header-row {
-  background: #f5f5f0;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
+  background: #f8fafc;
+  color: #64748b;
   font-weight: 700;
-}
-
-.matrix-row:last-child {
-  border-bottom: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
 }
 
 .matrix-header-row > div, .matrix-row > div {
-  padding: 15px;
-  border-right: 1px solid #ddd;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.matrix-header-row > div:last-child, .matrix-row > div:last-child {
-  border-right: none;
+.matrix-row {
+  transition: background 0.2s;
+}
+
+.matrix-row:hover {
+  background: #fcfcfd;
 }
 
 .habit-name-cell {
   justify-content: space-between !important;
+  padding-left: 32px !important;
 }
 
-.h-name {
-  font-family: 'Inter', sans-serif;
+.h-name-refined {
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
+  color: #0f172a;
 }
 
-.check-btn {
-  padding: 5px 12px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
+.check-btn-refined {
+  padding: 10px 20px;
+  border-radius: 12px;
   font-weight: 700;
-  border: 2px solid #0a0a0a;
-  background: none;
+  font-size: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
   cursor: pointer;
   transition: all 0.2s;
+  color: #64748b;
 }
 
-.check-btn.checked {
-  background: #0a0a0a;
+.check-btn-refined.checked {
+  background: #10b981;
   color: #fff;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-.day-cell {
+.cell-sq-refined {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
   background: #fff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.day-cell.filled .cell-sq {
-  background: #0a0a0a;
+.day-cell.filled .cell-sq-refined {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
 }
 
-.day-cell.is-today {
-  background: #fafafa;
+.day-cell.is-today .cell-sq-refined {
+  border-color: #6366f1;
 }
 
-.cell-sq {
-  width: 25px;
-  height: 25px;
-  border: 1px solid #ddd;
-}
-
-.streak-cell {
-  flex-direction: column !important;
-  gap: 2px;
-}
-
-.streak-num {
-  font-weight: 900;
-  font-size: 1.5rem;
-  line-height: 1;
+.streak-num-refined {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
 }
 
 .streak-unit {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin-top: -4px;
 }
 
 .matrix-footer {
-  padding: 20px;
-  border-top: 2px solid #0a0a0a;
-  background: #f9f9f9;
+  padding: 32px;
+  background: #f8fafc;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.habit-btn-primary {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.habit-btn-primary:hover {
+  transform: translateY(-2px);
+  background: #1e293b;
 }
 
 .habit-insights {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 32px;
 }
 
-.insight-card {
-  padding: 20px;
-  border: 2px solid #0a0a0a;
+.insight-card-refined {
+  padding: 32px;
   background: #fff;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
-.insight-card h3 {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+.insight-card-refined h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
   color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
 }
 
-.insight-card p {
-  font-size: 0.95rem;
-  font-weight: 500;
+.insight-card-refined p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
   line-height: 1.5;
-}
-
-@media (max-width: 1024px) {
-  .matrix-header-row, .matrix-row {
-    grid-template-columns: 1.5fr repeat(7, 40px) 70px;
-    overflow-x: auto;
-  }
 }
