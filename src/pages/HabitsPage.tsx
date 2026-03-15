@@ -7,29 +7,29 @@ interface HabitsPageProps {
 }
 
 const HabitsPage = ({ habits, onToggleHabit }: HabitsPageProps) => {
-  const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return (
-    <div className="brutal-page habits-page">
+    <div className="habits-page-view">
       <div className="habits-header">
-        <h1>HABIT_MATRIX</h1>
+        <h1 className="page-title">Habit Tracker</h1>
         <div className="habits-stats">
           <div className="stat-box-refined">
             <span className="box-val">{habits.length}</span>
-            <span className="box-lab">ACTIVE_HABITS</span>
+            <span className="box-lab">Active Habits</span>
           </div>
           <div className="stat-box-refined indigo">
             <span className="box-val">{habits.reduce((acc, h) => acc + h.streak, 0)}</span>
-            <span className="box-lab">TOTAL_STREAK_SCORE</span>
+            <span className="box-lab">Total Streak Score</span>
           </div>
         </div>
       </div>
 
       <div className="matrix-container">
         <div className="matrix-header-row">
-          <div className="habit-name-cell">HABIT_NAME</div>
+          <div className="habit-name-cell">Habit Name</div>
           {days.map(d => <div key={d} className="day-cell">{d}</div>)}
-          <div className="streak-cell">STREAK</div>
+          <div className="streak-cell">Streak</div>
         </div>
 
         {habits.map(habit => (
@@ -40,7 +40,7 @@ const HabitsPage = ({ habits, onToggleHabit }: HabitsPageProps) => {
                 className={`check-btn-refined ${habit.completedToday ? "checked" : ""}`}
                 onClick={() => onToggleHabit(habit.id)}
               >
-                {habit.completedToday ? "DONE" : "CHECK"}
+                {habit.completedToday ? "Done" : "Check"}
               </button>
             </div>
             
@@ -52,23 +52,23 @@ const HabitsPage = ({ habits, onToggleHabit }: HabitsPageProps) => {
 
             <div className="streak-cell">
               <span className="streak-num-refined">{habit.streak}</span>
-              <span className="streak-unit">DAYS</span>
+              <span className="streak-unit">Days</span>
             </div>
           </div>
         ))}
 
         <div className="matrix-footer">
-          <button className="habit-btn-primary">+ ADD_NEW_HABIT</button>
+          <button className="habit-btn-primary">+ Add New Habit</button>
         </div>
       </div>
 
       <div className="habit-insights">
         <div className="insight-card-refined">
-          <h3>WEEKLY_SUMMARY</h3>
+          <h3>Weekly Summary</h3>
           <p>You are performing 15% better than last week.</p>
         </div>
         <div className="insight-card-refined">
-          <h3>NEXT_MILESTONE</h3>
+          <h3>Next Milestone</h3>
           <p>Morning Workout: 3 days to hit 15-day streak award.</p>
         </div>
       </div>

@@ -35,41 +35,41 @@ const TasksPage = ({ tasks, onToggleTask, onAddTask, onDeleteTask, onUpdateTask 
   };
 
   return (
-    <div className="brutal-page tasks-manage-page">
-      <h1>ALL_TASKS_CRUD</h1>
+    <div className="tasks-page-view">
+      <h1 className="page-title">Tasks</h1>
 
       {/* Create Task Form */}
-      <div className="panel add-task-panel">
-        <div className="panel-header">
-          <h3 className="panel-title">ADD NEW TASK</h3>
+      <div className="tasks-card add-task-card">
+        <div className="card-header">
+          <h3 className="card-title">Add New Task</h3>
         </div>
         <form className="add-task-form-refined" onSubmit={handleSubmit}>
           <input
             type="text"
-            className="brutal-input-refined"
-            placeholder="TASK TITLE..."
+            className="tasks-input-refined"
+            placeholder="What needs to be done?"
             value={newTaskTitle}
             onChange={(e) => setNewTaskTitle(e.target.value)}
           />
           <select 
-            className="brutal-select-refined"
+            className="tasks-select-refined"
             value={newTaskCategory}
             onChange={(e) => setNewTaskCategory(e.target.value)}
           >
-            <option value="Study">STUDY</option>
-            <option value="School">SCHOOL</option>
-            <option value="Coding">CODING</option>
-            <option value="Reading">READING</option>
-            <option value="Life">LIFE</option>
+            <option value="Study">Study</option>
+            <option value="School">School</option>
+            <option value="Coding">Coding</option>
+            <option value="Reading">Reading</option>
+            <option value="Life">Life</option>
           </select>
-          <button type="submit" className="btn-create-refined">+ CREATE</button>
+          <button type="submit" className="btn-create-refined">Create</button>
         </form>
       </div>
 
-      <div className="panel master-list-refined" style={{ marginTop: '30px' }}>
-        <div className="panel-header">
-          <h3 className="panel-title">MASTER LIST</h3>
-          <span className="panel-count" style={{ fontWeight: 800 }}>{tasks.filter(t => t.completed).length}/{tasks.length}</span>
+      <div className="tasks-card master-list-card" style={{ marginTop: '30px' }}>
+        <div className="card-header">
+          <h3 className="card-title">Master List</h3>
+          <span className="task-count">{tasks.filter(t => t.completed).length}/{tasks.length} Done</span>
         </div>
         <div className="task-list">
           {tasks.map((task) => (

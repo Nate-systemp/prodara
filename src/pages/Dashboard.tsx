@@ -33,7 +33,7 @@ const Dashboard = ({
   });
 
   return (
-    <div className="brutal-dashboard">
+    <div className="dashboard-container">
       {/* Header */}
       <div className="dash-header">
         <div className="dash-header-left">
@@ -43,34 +43,46 @@ const Dashboard = ({
           <span className="dash-date">{dateStr.toUpperCase()}</span>
         </div>
         <div className="dash-header-right">
-          <span className="dash-time-label">SESSION</span>
-          <span className="dash-avatar">{userName.charAt(0).toUpperCase()}</span>
+          <span className="dash-time-label">ACTIVE_SESSION</span>
+          <div className="dash-avatar">{userName.charAt(0).toUpperCase()}</div>
         </div>
       </div>
 
-      {/* Progress Banner */}
-      <ProgressBanner
-        userName={userName}
-        tasks={tasks}
-        habits={habits}
-        studyMinutesToday={studyMinutes}
-      />
+      <div className="dash-grid-bento">
+        {/* Progress Banner Area */}
+        <div className="progress-banner-wrap">
+          <ProgressBanner
+            userName={userName}
+            tasks={tasks}
+            habits={habits}
+            studyMinutesToday={studyMinutes}
+          />
+        </div>
 
-      {/* Quick Stats */}
-      <QuickStats
-        tasks={tasks}
-        studyMinutesToday={studyMinutes}
-        habits={habits}
-      />
+        {/* Quick Stats Area */}
+        <div className="stats-mini-wrap">
+          <QuickStats
+            tasks={tasks}
+            studyMinutesToday={studyMinutes}
+            habits={habits}
+          />
+        </div>
 
-      {/* Main Grid: Tasks + Study Timer */}
-      <div className="dash-grid">
-        <TodayTasks tasks={tasks} onToggleTask={onToggleTask} />
-        <StudyTimer onSessionEnd={onStudySessionEnd} />
+        {/* Tasks Area */}
+        <div className="tasks-wrap">
+          <TodayTasks tasks={tasks} onToggleTask={onToggleTask} />
+        </div>
+
+        {/* Study Timer Area */}
+        <div className="timer-wrap">
+          <StudyTimer onSessionEnd={onStudySessionEnd} />
+        </div>
+
+        {/* Habits Area */}
+        <div className="habits-wrap">
+          <HabitCheckin habits={habits} onToggleHabit={onToggleHabit} />
+        </div>
       </div>
-
-      {/* Habits */}
-      <HabitCheckin habits={habits} onToggleHabit={onToggleHabit} />
     </div>
   );
 };

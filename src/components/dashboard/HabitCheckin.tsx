@@ -7,41 +7,36 @@ interface HabitCheckinProps {
 
 const HabitCheckin = ({ habits, onToggleHabit }: HabitCheckinProps) => {
   return (
-    <div className="panel habit-checkin">
+    <div className="dash-panel habit-checkin-panel">
       <div className="panel-header">
-        <div className="panel-title-group">
-          <span className="panel-index">04</span>
-          <h3 className="panel-title">HABIT CHECK-IN</h3>
-        </div>
+        <h3 className="panel-title">Habit Check-in</h3>
         <span className="panel-count">
-          {habits.filter((h) => h.completedToday).length}/{habits.length}
+          {habits.filter((h) => h.completedToday).length}/{habits.length} Done
         </span>
       </div>
 
-      <div className="habit-list">
+      <div className="habit-checkin-row">
         {habits.map((habit) => (
-          <div key={habit.id} className={`habit-item ${habit.completedToday ? "checked" : ""}`}>
-            <div className="habit-main">
-              <button
-                className={`habit-toggle ${habit.completedToday ? "active" : ""}`}
-                onClick={() => onToggleHabit(habit.id)}
-              >
-                {habit.completedToday ? "✓" : ""}
-              </button>
-              <div className="habit-info">
-                <span className="habit-name">{habit.name}</span>
-                <span className="habit-streak-text">{habit.streak} day streak</span>
+          <div key={habit.id} className="habit-card-fine">
+            <div className="habit-left">
+              <span className="habit-name-fine">{habit.name}</span>
+              <span className="habit-streak-badge">{habit.streak} DAY STREAK</span>
+              <div className="habit-dots-track">
+                {habit.lastSevenDays.map((done, i) => (
+                  <div
+                    key={i}
+                    className={`habit-dot ${done ? "active" : ""} ${i === 6 ? "today" : ""}`}
+                    title={i === 6 ? "Today" : `${6 - i} days ago`}
+                  />
+                ))}
               </div>
             </div>
-            <div className="streak-dots">
-              {habit.lastSevenDays.map((done, i) => (
-                <div
-                  key={i}
-                  className={`streak-dot ${done ? "filled" : ""} ${i === 6 ? "today" : ""}`}
-                  title={i === 6 ? "Today" : `${6 - i} days ago`}
-                />
-              ))}
-            </div>
+            <button
+              className={`check-trigger ${habit.completedToday ? "done" : ""}`}
+              onClick={() => onToggleHabit(habit.id)}
+            >
+              {habit.completedToday ? "✓" : "+"}
+            </button>
           </div>
         ))}
       </div>

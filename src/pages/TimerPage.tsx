@@ -31,9 +31,9 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
     setIsRunning(false);
     if (sessionType === "Focus") {
       onSessionEnd(Math.round(25)); // Hardcoded for 25 min session for now
-      alert("FOCUS_SESSION_COMPLETE. TAKE_A_BREAK.");
+      alert("Great job! Focus session complete. Take a well-deserved break.");
     } else {
-      alert("BREAK_COMPLETE. READY_TO_FOCUS?");
+      alert("Break is over! Ready to get back to work?");
     }
   };
 
@@ -62,12 +62,12 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
   };
 
   return (
-    <div className="brutal-page timer-page">
+    <div className="timer-page-view">
       <div className="timer-header">
-        <h1>FOCUS_MODE</h1>
+        <h1 className="page-title">Focus Timer</h1>
         <div className="timer-stats">
-          <span className="stat-label">TOTAL STUDY TIME TODAY</span>
-          <span className="stat-value-timer">{(studyMinutes / 60).toFixed(1)}H</span>
+          <span className="stat-label">Total Focused Time</span>
+          <span className="stat-value-timer">{(studyMinutes / 60).toFixed(1)}h</span>
         </div>
       </div>
 
@@ -77,13 +77,13 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
             className={`type-btn ${sessionType === "Focus" ? "active" : ""}`}
             onClick={setFocus}
           >
-            FOCUS
+            Focus
           </button>
           <button 
             className={`type-btn ${sessionType === "Break" ? "active" : ""}`}
             onClick={setBreak}
           >
-            BREAK
+            Break
           </button>
         </div>
 
@@ -94,20 +94,20 @@ const TimerPage = ({ studyMinutes, onSessionEnd }: TimerPageProps) => {
 
         <div className="timer-controls">
           <button className="large-btn" onClick={toggleTimer}>
-            {isRunning ? "PAUSE" : "START"}
+            {isRunning ? "Pause" : "Start"}
           </button>
           <button className="secondary-btn" onClick={resetTimer}>
-            RESET
+            Reset
           </button>
         </div>
       </div>
 
       <div className="timer-footer">
-        <span className="footer-label">POMODORO PROTOCOL v1.0</span>
+        <span className="footer-label">Pomodoro Protocol v1.0</span>
         <div className="protocol-steps">
-          <div className={`step ${sessionType === "Focus" ? "current" : ""}`}>01 FOCUS</div>
+          <div className={`step ${sessionType === "Focus" ? "current" : ""}`}>01 Focus</div>
           <div className="step-arrow">→</div>
-          <div className={`step ${sessionType === "Break" ? "current" : ""}`}>02 BREAK</div>
+          <div className={`step ${sessionType === "Break" ? "current" : ""}`}>02 Break</div>
         </div>
       </div>
     </div>

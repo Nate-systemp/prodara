@@ -1,66 +1,71 @@
 /* ============================================
-   DASHBOARD LAYOUT — Classy Solid
+   PRODARA LAYOUT — Premium & Unique
    ============================================ */
 
 :root {
-  --sidebar-bg: #111827; /* Deep Slate/Navy */
-  --sidebar-hover: #1f2937;
-  --sidebar-active: #6366f1; /* Indigo */
-  --sidebar-text: #9ca3af;
-  --sidebar-text-bright: #f9fafb;
+  --sidebar-bg: #0f172a;
+  --sidebar-accent: #6366f1;
+  --sidebar-text: #94a3b8;
+  --sidebar-text-active: #ffffff;
   --main-bg: #f8fafc;
-  --border-subtle: #e5e7eb;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --sidebar-width: 280px;
 }
 
-.brutal-layout {
+.prodara-layout {
   display: flex;
   min-height: 100vh;
-  background: var(--main-bg);
-  font-family: 'Inter', sans-serif;
+  background-color: var(--main-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
 }
 
-/* ---------- Sidebar ---------- */
-.brutal-sidebar {
-  width: 260px;
+/* ---------- Premium Sidebar ---------- */
+.prodara-sidebar {
+  width: var(--sidebar-width);
   background: var(--sidebar-bg);
-  color: var(--sidebar-text);
+  height: calc(100vh - 40px);
+  margin: 20px 0 20px 20px;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 0;
-  height: 100vh;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  top: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   z-index: 100;
+  overflow: hidden;
 }
 
 .sidebar-brand {
   padding: 40px 32px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
-.brand-text {
-  background: var(--sidebar-active);
+.brand-icon {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
   font-weight: 800;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  font-size: 1.5rem;
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
 }
 
 .brand-full {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--sidebar-text-bright);
+  letter-spacing: 0.15em;
+  color: #fff;
 }
 
 /* ---------- Navigation ---------- */
@@ -69,101 +74,115 @@
   display: flex;
   flex-direction: column;
   padding: 0 16px;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-weight: 500;
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-weight: 600;
   font-size: 0.95rem;
   color: var(--sidebar-text);
-  text-decoration: none;
-  transition: all 0.2s ease;
   border: none;
-  background: none;
+  background: transparent;
   width: 100%;
   text-align: left;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
 }
 
 .nav-item:hover {
-  color: var(--sidebar-text-bright);
-  background: var(--sidebar-hover);
-  transform: translateX(4px);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .nav-item.active {
   color: #fff;
-  background: var(--sidebar-active);
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), transparent);
+  border-left: 4px solid var(--sidebar-accent);
+  border-radius: 0 16px 16px 0;
+  margin-left: -16px;
+  padding-left: 32px;
 }
 
 .nav-icon {
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
+  font-size: 1.25rem;
+  opacity: 0.8;
 }
 
-.nav-label {
-  letter-spacing: 0.02em;
-}
-
-/* ---------- Footer ---------- */
+/* ---------- Sidebar Footer ---------- */
 .sidebar-footer {
   padding: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .footer-version {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.05em;
+  color: var(--sidebar-text);
+  opacity: 0.5;
+  font-weight: 700;
 }
 
-/* ---------- Main Content ---------- */
-.brutal-main {
+/* ---------- Main Content Area ---------- */
+.prodara-main {
   flex: 1;
-  padding: 48px 60px;
-  overflow-y: auto;
-  min-height: 100vh;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* ---------- Scrollbar Styling ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
-  .brutal-main {
-    padding: 32px 40px;
+@media (max-width: 1280px) {
+  .prodara-main {
+    padding: 30px 40px;
   }
 }
 
-@media (max-width: 768px) {
-  .brutal-sidebar {
+@media (max-width: 1024px) {
+  .prodara-sidebar {
     width: 80px;
+    margin: 10px;
+    height: calc(100vh - 20px);
+    top: 10px;
   }
-
-  .brand-full,
-  .nav-label {
+  
+  .brand-full, .nav-label, .sidebar-footer {
     display: none;
   }
-
+  
   .sidebar-brand {
-    padding: 32px 0;
+    padding: 30px 0;
     justify-content: center;
   }
-
+  
   .nav-item {
     justify-content: center;
-    padding: 16px 0;
-    transform: none !important;
+    padding: 20px 0;
   }
-
-  .brutal-main {
-    padding: 24px 20px;
+  
+  .nav-item.active {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 4px solid var(--sidebar-accent);
+    border-radius: 16px;
   }
 }

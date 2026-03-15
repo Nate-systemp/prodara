@@ -35,23 +35,22 @@ const ProgressBanner = ({ userName, tasks, habits, studyMinutesToday }: Progress
   return (
     <div className="progress-banner">
       <div className="banner-left">
-        <span className="banner-label">TODAY'S PROGRESS</span>
+        <h2 className="banner-title">Today's Progress</h2>
         <p className="banner-message">{getMessage()}</p>
-      </div>
-      <div className="banner-right">
-        <div className="xp-block">
-          <div className="xp-header">
-            <span className="xp-label">DAILY XP</span>
-            <span className="xp-value">{xp}/{xpGoal}</span>
-          </div>
-          <div className="xp-bar">
+        <div className="xp-bar-container">
+          <span className="xp-label">Daily XP</span>
+          <div className="xp-bar-track">
             <div
-              className="xp-fill"
+              className="xp-bar-fill"
               style={{ width: `${xpPercent}%` }}
             />
           </div>
+          <span className="xp-label" style={{ minWidth: 'auto', marginLeft: '8px' }}>{xp}/{xpGoal}</span>
         </div>
-        <span className="overall-percent">{overallPercent}%</span>
+      </div>
+      <div className="banner-right">
+        <span className="progress-pct">{overallPercent}%</span>
+        <span className="progress-label">DAY_PROGRESS_</span>
       </div>
     </div>
   );

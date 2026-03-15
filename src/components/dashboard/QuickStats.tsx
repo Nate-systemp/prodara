@@ -24,42 +24,45 @@ const QuickStats = ({ tasks, studyMinutesToday, habits }: QuickStatsProps) => {
   const stats = [
     {
       id: "tasks",
-      label: "TASKS DONE",
+      label: "Tasks Done",
       value: `${completedTasks}/${totalTasks}`,
       sub: `${taskPercent}% complete`,
-      accent: completedTasks === totalTasks && totalTasks > 0,
+      accent: false,
     },
     {
       id: "study",
-      label: "STUDY HOURS",
+      label: "Focused Time",
       value: `${studyHours}h`,
       sub: `${studyMinutesToday} min today`,
       accent: false,
     },
     {
       id: "streak",
-      label: "BEST STREAK",
+      label: "Best Streak",
       value: `${maxStreak}`,
       sub: maxStreak > 0 ? "days running" : "start today",
-      accent: maxStreak >= 7,
+      accent: false,
     },
     {
       id: "weekly",
-      label: "WEEKLY GOAL",
+      label: "Weekly Goal",
       value: `${weeklyPercent}%`,
       sub: `${weeklyDone}/${weeklyGoal} tasks`,
-      accent: weeklyPercent >= 100,
+      accent: true,
     },
   ];
 
   return (
-    <div className="stats-row">
+    <div className="stats-grid">
       {stats.map((stat, i) => (
-        <div key={stat.id} className={`stat-card ${stat.accent ? "stat-accent" : ""}`}>
-          <span className="stat-index">0{i + 1}</span>
-          <span className="stat-label">{stat.label}</span>
+        <div key={stat.id} className={`stat-card ${stat.accent ? "invert" : ""}`}>
+          <div className="stat-header">
+            <span className="stat-title">{stat.label}</span>
+          </div>
           <span className="stat-value">{stat.value}</span>
-          <span className="stat-sub">{stat.sub}</span>
+          <div className="stat-footer">
+            <span className="stat-meta">{stat.sub}</span>
+          </div>
         </div>
       ))}
     </div>

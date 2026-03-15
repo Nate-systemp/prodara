@@ -12,17 +12,16 @@ const NAV_ITEMS = [
   { label: "Tasks", icon: "☐" },
   { label: "Timer", icon: "◷" },
   { label: "Habits", icon: "◆" },
-  { label: "Analytics", icon: "▤" },
   { label: "Settings", icon: "⚙" },
 ];
 
 const DashboardLayout = ({ children, currentView, onViewChange }: DashboardLayoutProps) => {
   return (
-    <div className="brutal-layout">
+    <div className="prodara-layout">
       {/* Sidebar */}
-      <aside className="brutal-sidebar">
+      <aside className="prodara-sidebar">
         <div className="sidebar-brand">
-          <span className="brand-text">P</span>
+          <div className="brand-icon">P</div>
           <span className="brand-full">PRODARA</span>
         </div>
 
@@ -45,7 +44,7 @@ const DashboardLayout = ({ children, currentView, onViewChange }: DashboardLayou
       </aside>
 
       {/* Main Content */}
-      <main className="brutal-main">
+      <main className="prodara-main">
         {children}
       </main>
     </div>

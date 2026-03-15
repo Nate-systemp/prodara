@@ -7,34 +7,34 @@ interface SettingsPageProps {
 
 const SettingsPage = ({ userName, onNameChange }: SettingsPageProps) => {
   return (
-    <div className="brutal-page settings-page">
-      <h1>SETTINGS_</h1>
+    <div className="settings-page-view">
+      <h1 className="page-title">Settings</h1>
       
       <div className="settings-grid-refined">
         <div className="settings-card">
-          <h3>PROFILE_DATA</h3>
+          <h3>Profile Settings</h3>
           <div className="setting-item-refined">
-            <label className="item-label">DISPLAY NAME</label>
+            <label className="item-label">Display Name</label>
             <input 
               type="text" 
-              className="brutal-input-refined"
+              className="settings-input-refined"
               value={userName} 
               onChange={(e) => onNameChange(e.target.value)} 
-              placeholder="Your name..."
+              placeholder="Enter your name"
             />
           </div>
         </div>
 
         <div className="settings-card">
-          <h3>PREFERENCES</h3>
+          <h3>Preferences</h3>
           <div className="setting-row-refined">
-            <span className="item-title">DARK MODE</span>
+            <span className="item-title">Dark Mode</span>
             <div className="classy-toggle-track active">
               <div className="classy-toggle-thumb" />
             </div>
           </div>
           <div className="setting-row-refined">
-            <span className="item-title">NOTIFICATIONS</span>
+            <span className="item-title">Notifications</span>
             <div className="classy-toggle-track">
               <div className="classy-toggle-thumb" />
             </div>
@@ -42,25 +42,25 @@ const SettingsPage = ({ userName, onNameChange }: SettingsPageProps) => {
         </div>
 
         <div className="settings-card">
-          <h3>SYSTEM_INFO</h3>
+          <h3>System Info</h3>
           <div className="setting-row-refined">
-            <span className="item-title">STATUS</span>
-            <span className="val-status">ONLINE</span>
+            <span className="item-title">Status</span>
+            <span className="val-status">Online</span>
           </div>
           <div className="setting-row-refined">
-            <span className="item-title">VERSION</span>
-            <span style={{ fontWeight: 800 }}>0.1.0-CLASSY</span>
+            <span className="item-title">Version</span>
+            <span className="version-tag">0.1.0-Classy</span>
           </div>
         </div>
       </div>
 
       <div className="danger-zone-refined">
         <div className="danger-label">
-          <h3>DANGER_ZONE</h3>
+          <h3>Danger Zone</h3>
           <p>This action is irreversible. Proceed with caution.</p>
         </div>
         <button className="delete-btn-classy" onClick={() => window.location.reload()}>
-          RESET_ALL_DATA
+          Reset All Data
         </button>
       </div>
     </div>
